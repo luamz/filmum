@@ -1,0 +1,32 @@
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 15%;
+    left: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.nav-link.active { color: #ecb3f5 !important; background-color: #343a40 !important; }
+
+@media (max-width:1200px) {
+    .coisas { font-size: 13px }
+    .carousel-caption h4 { font-size: 20px;}
+}
+
+@media (max-width:768px) {
+    .nav-pills .nav-item { margin-right: 20px; }
+    #chamada { padding-top: 70px; }
+    #pessoa3, #pessoa4, #poster5, #poster6 , #lista3, #lista4{ display: none; }
+    .coisas { font-size: 20px; }
+}
+
+@media (max-width:576px) {
+    .poster {height: 200px;}
+    #chamada { padding-top: 90px; font-size: 20px; }
+}
+
+@media (max-width:576px) {
+    .poster {height: 100px;}
+}

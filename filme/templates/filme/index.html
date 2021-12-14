@@ -1,0 +1,138 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block titulo %}
+    Parasita(2019) - Filmum
+{% endblock %}
+
+{% block corpo%}
+    <body>
+        {{ frase }}
+        <br>
+        <br>
+        <div class="col-lg-6 mt-auto mb-auto">
+                    <!-- Informações sobre o filme e sinopse -->
+
+                    <div class="row px-3">
+                        <h1 class="font-weight-bold">Parasita</h1>
+                        <h5 class="ml-2 mt-3">(2019)</h5>
+                        <h5 class="ml-2 mt-3"><i>"기생충"</i></h5>
+                    </div>
+                    <div class="row px-3 mb-2">
+                        <h6 class="mr-2">Dirigido por: <span class="badge badge-dark"> Bong Joon-oh</span></h6>
+                        <h6>País: <span class="badge badge-dark">Coreia do Sul</span></h6>
+                    </div>
+
+                    <div class="row px-3 mb-2">
+                        <h6 class="mr-4">Gênero:
+                            <span class="badge badge-dark">Thriller</span>
+                            <span class="badge badge-dark">Comédia</span>
+                            <span class="badge badge-dark">Drama</span>
+                        </h6>
+                        <h6>Duração: 188mins</h6>
+                    </div>
+
+
+                    <div class="card bg-dark text-white mb-4">
+                        <!-- Sinopse -->
+
+                        <div class="card-header">
+                            <h5 class="mb-0 font-weight-bold text-uppercase">Sinopse</h5>
+                        </div>
+                        <div class="card-body mb-4">
+                            <div class="media">
+                                <div class="media-body">
+                                    <span class="texto-media-body">
+                                        <p>
+                                            Toda a família de Ki-taek está desempregada,vivendo num porão sujo e apertado.
+                                            Uma obra do acaso faz com que o filho adolescente da família comece a dar aulas
+                                            de inglês
+                                            à garota de uma família rica.
+                                            Fascinados com a vida luxuosa destas pessoas, pai, mãe, filho e filha bolam um
+                                            plano
+                                            para se infiltrarem também na família burguesa, um a um.
+                                            No entanto, os segredos e mentiras necessários à ascensão social custarão caro a
+                                            todos.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <!-- Quandros de Avaliações -->
+
+                    <div class="card bg-dark text-white mb-4">
+                        <!-- Nota do Usuário Atual-->
+                        <div class="card-body mb-4">
+                            <div class="media">
+                                <div class="media-body">
+                                    <span class="texto-media-body">
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6 text-center">
+                                                <span class="fa fa-check fa-2x" style="color: rgb(0, 201, 0)"></span>
+                                                <h6>Assisti</h6>
+                                            </div>
+
+                                            <div class="col-md-6 text-center">
+                                                <span class="fas fa-heart fa-2x" style="color: red;"></span>
+                                                <h6>Amei</h6>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <h5 class="col text-center">Minha nota</h5>
+                                            <div class=" col-lg-12 text-center avaliacao mb-3">
+                                                <i class="nota fas fa-star fa-2x mr-0" style="color: gold;"></i>
+                                                <i class="nota fas fa-star fa-2x" style="color: gold;"></i>
+                                                <i class="nota fas fa-star fa-2x" style="color: gold;"></i>
+                                                <i class="nota fas fa-star fa-2x" style="color: gold;"></i>
+                                                <i class="nota fas fa-star fa-2x" style="color: gold;"></i>
+                                            </div>
+
+                                            <div class="col text-center">
+                                                <button type="button" class="btn btn-outline-light mb-2" aria-label="close">
+                                                    Escrever uma resenha
+                                                </button>
+                                                <button type="button" class="btn btn-outline-light mb-2" aria-label="close">
+                                                    Adicionar a uma lista
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark text-white">
+                        <!-- Nota do Público-->
+                        <div class="card-header">
+                            <h6 class="mb-0 font-weight-bold text-uppercase">Nota do Público</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <span class="row">
+                                        <div class="col-3 text-center">
+                                            <i class="fas fa-star fa-2x " style="color: gold;"></i>
+                                        </div>
+                                        <div class="col-9 text-center">
+                                            <h3> 4.9</h3>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+    </body>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'images/logo/favicon.ico' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    {% block stylesheets %}
+    {% endblock %}
+    <title>{% block titulo %}Filmum - Rede Social de Filmes{% endblock %}</title>
+</head>
+<body>
+
+    {% block navbar %}
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+            <div class="container">
+
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/logo/logo.png' %}" alt="Filmum" style="width: 200px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu"
+                    aria-expanded="false" aria-label="Botão de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <div class="navbar-nav ml-auto mr-auto">
+                        <a class="nav-link nav-item text-uppercase font-weight-bold" href="perfil.html">Meu perfil</a>
+                    </div>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Pesquisar"
+                            id="barra-pesquisa">
+                        <button class="btn btn-outline-success my-2 my-sm-0" id="botao-pesquisa" type="submit">
+                            <span aria-hidden="true" class="fas fa-search">
+                                <span class="sr-only">Pesquisar</span>
+                            </span>
+                        </button>
+                    </form>
+
+                    <div class="navbar-nav ml-auto mr-auto">
+
+                        <a class=" nav-link nav-item text-uppercase font-weight-bold" href="index.html"
+                            style="color: #D78EE2;">
+                            Sair <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block corpo %}
+    {% endblock %}
+
+    {% block rodape%}
+    <div class="footer">
+      <div class="text-center">
+         <h5>Luam Souza - 2021 -
+            <a href="https://github.com/luamz">Github <i class="fab fa-github"></i></a>
+         </h5>
+      </div>
+   </div>
+    {% endblock %}
+    <script src="{% static 'js/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+
+            {% block domready %}
+
+            {% endblock %}
+        });
+    </script>
+</body>
+</html>

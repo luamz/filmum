@@ -1,0 +1,13 @@
+.card-header h6 { color: #D78EE2; }
+
+@media (max-width:1200px) {
+    .poster {height: 300px; display:block; margin-left:auto; margin-right:auto; }
+}
+
+@media (max-width:768px) {
+    .fileira2 { display: none; }
+    .fa-2x {font-size: 20px;}
+    #banner { display: none; }
+    #conteudo { margin-top: 100px;}
+}
+

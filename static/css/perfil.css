@@ -1,0 +1,15 @@
+.btn-seguir { color: #fff; background-color: #95639c; border-color: rgb(119, 44, 133) }
+
+@media (max-width:1200px) {
+    .btn-group button{ padding-right: 0px; display:flex; flex-direction: column;}
+}
+
+@media (max-width:768px) {
+    #lista4, #lista5, #lista6{ display: none; }
+    .poster {height: 200px;}
+}
+
+@media (max-width:576px) {
+    .poster {height: 100px;}
+    .btn-group{display:flex; flex-direction: column;}
+}

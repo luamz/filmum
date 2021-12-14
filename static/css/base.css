@@ -1,0 +1,32 @@
+body { background-color: rgb(226, 226, 226); }
+
+.navbar { background-color:#24282c !important}
+nav .navbar-nav a{ color: #D78EE2 !important;}
+nav .navbar-nav a:hover{ color: white !important;}
+#barra-pesquisa { border-radius: 25px; }
+#botao-pesquisa { border-radius: 25px; border-color: #D78EE2; color: #D78EE2; }
+#botao-pesquisa:hover { color: white; border-color: rgb(119, 44, 133); background-color: rgb(119, 44, 133); }
+
+.card a{ color: white; text-decoration:none }
+.card a img:hover{border:1px solid #D78EE2;}
+.card a:hover {color:  #D78EE2; }
+.thumbnail { border: 2px solid #D78EE2; }
+.card-header h5 { color: #D78EE2; }
+.media img { max-width: 180px; margin-bottom: 16px; margin-right: 16px; border-color:none; border-radius: 5px;}
+
+.footer { background: #333; padding: 30px 0; }
+.footer a, .footer h5 { color: #D78EE2; }
+
+@media (max-width:1200px) {
+    .navbar a { font-size: 14px; }
+    #barra-pesquisa { width: 50%; }
+}
+
+@media (max-width:992px) {
+    .navbar a { font-size: 14px; }
+    #barra-pesquisa { display: none; }
+}
+
+@media (max-width:768px) {
+    #barra-pesquisa { display: inline; margin: 0 15px 0 15px; }
+}
