@@ -3,7 +3,7 @@ from genero.models import Genero
 
 
 class Filme(models.Model):
-    genero = models.ManyToManyField(Genero)
+    genero = models.ManyToManyField(Genero, related_name='generos')
     nome = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100)
     nome_original = models.CharField(max_length=100, blank=True)

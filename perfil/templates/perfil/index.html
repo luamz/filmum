@@ -1,0 +1,264 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block titulo %}
+    {{perfil.nickname}} - Filmum
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/perfil.css' %}" />
+{% endblock %}
+
+{% block corpo %}
+     <!-- Conteúdo do site -->
+    <div class="container" style="padding-top: 100px;">
+        <!-- Painel Perfil -->
+        <div class="jumbotron" style="background-color: #343a40 !important;">
+
+            <div class="row text-white" id="painel-perfil">
+                <div class="col-lg-3 col-md-5">
+                    <img class="thumbnail rounded-circle mb-2" style="max-width: 100px;"
+                        src="{% static 'images/perfis/'%}{{ perfil.foto }}" />
+                    <h4 class="">{{ perfil.nickname }}</h4>
+                    <h6><span class="badge badge-light">Segue você</span></h6>
+                </div>
+                <div class="col-lg-8 col-md-5">
+                    <div>
+                        <div class="row mb-2">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <span class="fa fa-film fa-2x" style="color: #D78EE2"></span>
+                                <h6>{{ vistos }} Filmes</h6>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <span class="fas fa-list-ol fa-2x" style="color: #D78EE2;"></span>
+                                <h6>{{ listas }} Listas</h6>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <span class="fas fa-users fa-2x" style="color: #D78EE2;"></span>
+                                <h6>{{ perfil.seguidores }} Seguidores</h6>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <span class="fas fa-user-friends fa-2x" style="color: #D78EE2;"></span>
+                                <h6>{{ perfil.seguindo}} Seguindo</h6>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="padding-top: 45px;">
+                        <div class="btn-group  mr-4 mb-4" data-toggle="buttons" role="group" aria-label="Menu Perfil">
+                            <button type="button" class="btn btn-secondary active"
+                                style="border-bottom: 2px solid #D78EE2;">Perfil</button>
+                            <button type="button" class="btn btn-secondary">Filmes</button>
+                            <button type="button" class="btn btn-secondary">Resenhas</button>
+                            <button type="button" class="btn btn-secondary">Listas</button>
+                            <button type="button" class="btn btn-secondary">Favoritos</button>
+                        </div>
+                        <button type="button" class="btn btn-seguir mb-4 align-content-end">Seguindo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <!-- Favoritos e Últimos-->
+            <div class="col-lg-8">
+
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0 font-weight-bold text-uppercase">Favoritos</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="col-lg-12 col-md-8 col-sm-12">
+
+                            <div class="row mt-4">
+                                {% for favorito in favoritos  %}
+                                <div class="col-lg-3 col-md-6 col-6 ">
+                                    <a class="card mb-4 poster1" href="filme.html">
+                                        <img src="{% static 'images/filmes/'%}{{ favorito.imagem }}" alt="{{ favorito.nome }}({{ favorito.ano }})">
+                                    </a>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Últimos Assistidos -->
+                <div class="card bg-dark mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0 font-weight-bold text-uppercase">Últimos Filmes Assistidos</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-lg-12 col-md-8 col-sm-12">
+                            <div class="row mt-4">
+                                {% for filme in ultimos %}
+                                    <div class="col-lg-3 col-md-6 col-6 ">
+                                        <a class="card mb-4" id="poster5" href="filme.html">
+                                            <img src="{% static 'images/filmes/'%}{{ filme.imagem }}" alt="{{ filme.nome }}({{ filme.ano }})">
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listas -->
+            <div class="col-lg-4 mt-auto mb-auto">
+
+                <div class="card bg-dark text-white mb-4">
+
+                    <div class="card-header">
+                        <h5 class="mb-0 font-weight-bold text-uppercase">Listas</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="media">
+                            <div class="media-body">
+                                {% for lista in listas_perfil %}
+                                    <div id="lista1">
+                                        <!-- Lista 1 -->
+                                        <a href="lista.html">
+                                            <h6 class="font-weight-bold">{{ lista.nome }}
+                                            </h6>
+                                        </a>
+                                        <div class="row px-2 mb-2">
+                                            <h5 class="ml-2 mt-1 mr-4">{{ lista.curtidas }}
+                                                <i class="fas fa-thumbs-up fa-xs" style="color: #dc50f8;"></i>
+                                            </h5>
+
+                                        </div>
+                                        <hr>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Últimas Resenhas -->
+        <div class="card bg-dark text-white mb-4">
+
+            <div class="card-header" id="id-header-resenhas">
+                <h5 class="mb-0 font-weight-bold text-uppercase">Últimas Resenhas</h5>
+            </div>
+
+            <div class="card-body mb-4">
+                <div class="row">
+                    {% for resenha in resenhas_recentes %}
+                        <!-- Resenha 1 -->
+                        <div class="col-lg-6">
+                            <div class="media">
+                                <!-- Poster do filme -->
+                                <a href="filme.html">
+                                    <img src="{% static 'images/filmes/' %}{{ resenha.filme.imagem }}" alt="{{ resenha.filme.nome}} ({{ resenha.filme.ano }})"
+                                        class="poster">
+                                </a>
+                                <!-- Body da Resenha -->
+                                <div class="media-body">
+
+                                    <!-- Filme sendo resenhado -->
+                                    <a href="filme.html">
+                                        <h3 class="font-weight-bold">{{ resenha.filme.nome }}</h3>
+                                    </a>
+
+                                    <!-- Avaliação e Ano de Lançamento -->
+                                    <div class="row">
+                                        <h5 class="col-sm-8">
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-heart fa-xs" style="color: red;"></i>
+                                        </h5>
+                                        <h5 class="col-sm-4">({{ resenha.filme.ano }})</h5>
+                                    </div>
+
+                                    <!-- Resenha -->
+                                    <span class="texto-media-body">
+                                        <p>
+                                            {{ resenha.texto }}
+                                        </p>
+
+                                        <button type="button" class="btn btn-sm btn-outline-light">
+                                            Curtir
+                                            <i class="fas fa-thumbs-up fa-md" style="color: #dc50f8;"> {{ resenha.curtidas }}</i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Resenhas Populares -->
+        <div class="card bg-dark text-white mb-4">
+
+            <div class="card-header" id="id-header-resenhas">
+                <h5 class="mb-0 font-weight-bold text-uppercase">Resenhas Mais Populares</h5>
+            </div>
+
+            <div class="card-body mb-4">
+                <!-- Fileiras -->
+                <div class="row">
+
+                    {% for resenha in resenhas_populares %}
+                        <!-- Resenha 1 -->
+                        <div class="col-lg-6">
+                            <div class="media">
+                                <!-- Poster do filme -->
+                                <a href="filme.html">
+                                    <img src="{% static 'images/filmes/' %}{{ resenha.filme.imagem }}" alt="{{ resenha.filme.nome}} ({{ resenha.filme.ano }})"
+                                        class="poster">
+                                </a>
+                                <!-- Body da Resenha -->
+                                <div class="media-body">
+
+                                    <!-- Filme sendo resenhado -->
+                                    <a href="filme.html">
+                                        <h3 class="font-weight-bold">{{ resenha.filme.nome }}</h3>
+                                    </a>
+
+                                    <!-- Avaliação e Ano de Lançamento -->
+                                    <div class="row">
+                                        <h5 class="col-sm-8">
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                            <i class="fas fa-heart fa-xs" style="color: red;"></i>
+                                        </h5>
+                                        <h5 class="col-sm-4">({{ resenha.filme.ano }})</h5>
+                                    </div>
+
+                                    <!-- Resenha -->
+                                    <span class="texto-media-body">
+                                        <p>
+                                            {{ resenha.texto }}
+                                        </p>
+
+                                        <button type="button" class="btn btn-sm btn-outline-light">
+                                            Curtir
+                                            <i class="fas fa-thumbs-up fa-md" style="color: #dc50f8;"> {{ resenha.curtidas }}</i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

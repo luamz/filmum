@@ -2,34 +2,55 @@
 {% load static %}
 
 {% block titulo %}
-    Parasita(2019) - Filmum
+    {{filme.nome}} ({{ filme.ano }})- Filmum
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/filme.css' %}" />
 {% endblock %}
 
 {% block corpo%}
     <body>
-        {{ frase }}
-        <br>
-        <br>
-        <div class="col-lg-6 mt-auto mb-auto">
+        {% if filme.banner %}
+            <img src="{% static 'images/banners/'%}{{ filme.banner }}" class="w-100 mb-4" id="banner">
+        {% else %}
+            <br><br><br>
+        {% endif %}
+
+        <!-- Conteúdo do site -->
+        <div id="conteudo" class="container">
+            <div class="row mb-4">
+                <!-- Filme e Avaliações-->
+
+                <div class="col-lg-3  mt-auto mb-auto">
+                    <!-- Poster do Filme-->
+                    <img src="{% static 'images/filmes/'%}{{ filme.imagem }}" alt="Parasita (2019)" class="poster"
+                        style="max-height: 400px;">
+                </div>
+
+                <div class="col-lg-6 mt-auto mb-auto">
                     <!-- Informações sobre o filme e sinopse -->
 
                     <div class="row px-3">
-                        <h1 class="font-weight-bold">Parasita</h1>
-                        <h5 class="ml-2 mt-3">(2019)</h5>
-                        <h5 class="ml-2 mt-3"><i>"기생충"</i></h5>
+                        <h1 class="font-weight-bold">{{ filme.nome }}</h1>
+                        <h5 class="ml-2 mt-3">({{ filme.ano }})</h5>
+                        {% if filme.nome_original %}
+                            <h5 class="ml-2 mt-3"><i>"{{ filme.nome_original }}"</i></h5>
+                        {% endif %}
+
                     </div>
                     <div class="row px-3 mb-2">
-                        <h6 class="mr-2">Dirigido por: <span class="badge badge-dark"> Bong Joon-oh</span></h6>
-                        <h6>País: <span class="badge badge-dark">Coreia do Sul</span></h6>
+                        <h6 class="mr-2">Dirigido por: <span class="badge badge-dark">{{ filme.diretor }}</span></h6>
+                        <h6>País: <span class="badge badge-dark">{{ filme.pais }}</span></h6>
                     </div>
 
                     <div class="row px-3 mb-2">
                         <h6 class="mr-4">Gênero:
-                            <span class="badge badge-dark">Thriller</span>
-                            <span class="badge badge-dark">Comédia</span>
-                            <span class="badge badge-dark">Drama</span>
+                            {% for genero in generos %}
+                                <span class="badge badge-dark">{{ genero.nome }}</span>
+                            {% endfor %}
                         </h6>
-                        <h6>Duração: 188mins</h6>
+                        <h6>Duração: {{ filme.duracao }}mins</h6>
                     </div>
 
 
@@ -44,15 +65,7 @@
                                 <div class="media-body">
                                     <span class="texto-media-body">
                                         <p>
-                                            Toda a família de Ki-taek está desempregada,vivendo num porão sujo e apertado.
-                                            Uma obra do acaso faz com que o filho adolescente da família comece a dar aulas
-                                            de inglês
-                                            à garota de uma família rica.
-                                            Fascinados com a vida luxuosa destas pessoas, pai, mãe, filho e filha bolam um
-                                            plano
-                                            para se infiltrarem também na família burguesa, um a um.
-                                            No entanto, os segredos e mentiras necessários à ascensão social custarão caro a
-                                            todos.
+                                            {{ filme.sinopse }}
                                         </p>
                                     </span>
                                 </div>
@@ -122,7 +135,7 @@
                                             <i class="fas fa-star fa-2x " style="color: gold;"></i>
                                         </div>
                                         <div class="col-9 text-center">
-                                            <h3> 4.9</h3>
+                                            <h3> {{ filme.nota_publico }}</h3>
                                         </div>
                                     </span>
                                 </div>
@@ -133,6 +146,132 @@
             </div>
 
             <div>
+                <!-- Resenhas Populares -->
+                <div class="card bg-dark text-white mb-4">
+
+                    <div class="card-header" id="id-header-resenhas">
+                        <h5 class="mb-0 col-lg-6 font-weight-bold text-uppercase">Resenhas Populares</h5>
+                    </div>
+
+                    <div class="card-body mb-4">
+                        <div class="row">
+                            {% if resenhas_populares %}
+                                {% for resenha in resenhas_populares %}
+                                <!-- Resenha 1 -->
+                            <div class="col-lg-6">
+                                <div class="media">
+                                    <div class="media-body">
+
+                                        <!-- Dados de quem fez -->
+                                        <div class="row px-2">
+                                            <a href="perfil.html">
+                                                <img class="thumbnail rounded-circle  mr-3" style="max-width: 40px;"
+                                                    src="{% static 'images/perfis/'%}{{ resenha.perfil.foto }}" />
+                                            </a>
+                                            <a href="perfil.html">
+                                                <h5 class="mt-2 ">{{ resenha.perfil.nickname }}</h5>
+                                            </a>
+
+                                        </div>
+
+                                        <!-- Avaliação -->
+                                        <div class="row">
+                                            <h5 class="col-sm-8">
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-heart fa-xs" style="color: red;"></i>
+                                            </h5>
+                                        </div>
+
+                                        <!-- Resenha -->
+                                        <span class="texto-media-body">
+                                            <p>
+                                                {{ resenha.texto }}
+                                            </p>
+                                        </span>
+
+                                        <button type="button" class="btn btn-sm btn-outline-light">
+                                            Curtir
+                                            <i class="fas fa-thumbs-up fa-md" style="color: #dc50f8;"> {{ resenha.curtidas }}</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                                <h5 class="ml-2">Ainda não há resenhas para esse filme.</h5>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Resenhas Recentes -->
+                <div class="card bg-dark text-white mb-4">
+
+                    <div class="card-header" id="id-header-resenhas">
+                        <h5 class="mb-0 col-lg-6 font-weight-bold text-uppercase">Resenhas Recentes</h5>
+                    </div>
+
+                    <div class="card-body mb-4">
+                        <div class="row">
+                            {% if resenhas_recentes %}
+                                {% for resenha in resenhas_recentes %}
+                                <!-- Resenha 1 -->
+                            <div class="col-lg-6">
+                                <div class="media">
+                                    <div class="media-body">
+
+                                        <!-- Dados de quem fez -->
+                                        <div class="row px-2">
+                                            <a href="perfil.html">
+                                                <img class="thumbnail rounded-circle  mr-3" style="max-width: 40px;"
+                                                    src="{% static 'images/perfis/'%}{{ resenha.perfil.foto }}" />
+                                            </a>
+                                            <a href="perfil.html">
+                                                <h5 class="mt-2 ">{{ resenha.perfil.nickname }}</h5>
+                                            </a>
+
+                                        </div>
+
+                                        <!-- Avaliação -->
+                                        <div class="row">
+                                            <h5 class="col-sm-8">
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-star fa-xs" style="color: gold;"></i>
+                                                <i class="fas fa-heart fa-xs" style="color: red;"></i>
+                                            </h5>
+                                        </div>
+
+                                        <!-- Resenha -->
+                                        <span class="texto-media-body">
+                                            <p>
+                                                {{ resenha.texto }}
+                                            </p>
+                                        </span>
+
+                                        <button type="button" class="btn btn-sm btn-outline-light">
+                                            Curtir
+                                            <i class="fas fa-thumbs-up fa-md" style="color: #dc50f8;"> {{ resenha.curtidas }}</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                                <h5 class="ml-2">Ainda não há resenhas para esse filme.</h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </body>
 
 {% endblock %}
