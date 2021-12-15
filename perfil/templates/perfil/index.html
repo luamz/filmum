@@ -27,7 +27,7 @@
                         <div class="row mb-2">
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <span class="fa fa-film fa-2x" style="color: #D78EE2"></span>
-                                <h6>{{ vistos }} Filmes</h6>
+                                <h6>{{ perfil.total_filmes_vistos }} Filmes</h6>
                             </div>
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <span class="fas fa-list-ol fa-2x" style="color: #D78EE2;"></span>
@@ -74,7 +74,7 @@
                             <div class="row mt-4">
                                 {% for favorito in favoritos  %}
                                 <div class="col-lg-3 col-md-6 col-6 ">
-                                    <a class="card mb-4 poster1" href="filme.html">
+                                    <a class="card mb-4 poster1" href="/filme/">
                                         <img src="{% static 'images/filmes/'%}{{ favorito.imagem }}" alt="{{ favorito.nome }}({{ favorito.ano }})">
                                     </a>
                                 </div>
@@ -95,7 +95,7 @@
                             <div class="row mt-4">
                                 {% for filme in ultimos %}
                                     <div class="col-lg-3 col-md-6 col-6 ">
-                                        <a class="card mb-4" id="poster5" href="filme.html">
+                                        <a class="card mb-4" id="poster5" href="/filme/">
                                             <img src="{% static 'images/filmes/'%}{{ filme.imagem }}" alt="{{ filme.nome }}({{ filme.ano }})">
                                         </a>
                                     </div>
@@ -121,7 +121,7 @@
                                 {% for lista in listas_perfil %}
                                     <div id="lista1">
                                         <!-- Lista 1 -->
-                                        <a href="lista.html">
+                                        <a href="/lista/">
                                             <h6 class="font-weight-bold">{{ lista.nome }}
                                             </h6>
                                         </a>
@@ -157,7 +157,7 @@
                         <div class="col-lg-6">
                             <div class="media">
                                 <!-- Poster do filme -->
-                                <a href="filme.html">
+                                <a href="/filme/">
                                     <img src="{% static 'images/filmes/' %}{{ resenha.filme.imagem }}" alt="{{ resenha.filme.nome}} ({{ resenha.filme.ano }})"
                                         class="poster">
                                 </a>
@@ -165,7 +165,7 @@
                                 <div class="media-body">
 
                                     <!-- Filme sendo resenhado -->
-                                    <a href="filme.html">
+                                    <a href="/filme/">
                                         <h3 class="font-weight-bold">{{ resenha.filme.nome }}</h3>
                                     </a>
 
@@ -217,7 +217,7 @@
                         <div class="col-lg-6">
                             <div class="media">
                                 <!-- Poster do filme -->
-                                <a href="filme.html">
+                                <a href="/filme/">
                                     <img src="{% static 'images/filmes/' %}{{ resenha.filme.imagem }}" alt="{{ resenha.filme.nome}} ({{ resenha.filme.ano }})"
                                         class="poster">
                                 </a>
@@ -225,7 +225,7 @@
                                 <div class="media-body">
 
                                     <!-- Filme sendo resenhado -->
-                                    <a href="filme.html">
+                                    <a href="/filme/">
                                         <h3 class="font-weight-bold">{{ resenha.filme.nome }}</h3>
                                     </a>
 

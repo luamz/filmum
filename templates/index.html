@@ -71,46 +71,46 @@
       <div class="carousel-inner">
 
          <div class="carousel-item active" style="background-color: black;">
-            <img src="{% static 'images/banners/call-me-by-your-name-2017.jpg' %}" class="d-block w-100">
+            <img src="{% static 'images/banners/'%}{{ banner0.banner }}" class="d-block w-100">
             <div class="carousel-caption">
                <div class="text-right">
-                  <h4 class="font-italic">Call Me By Your Name (2017)</h4>
+                  <h4 class="font-italic">{{ banner0.nome }}({{ banner0.ano }})</h4>
                </div>
             </div>
          </div>
 
          <div class="carousel-item">
-            <img src=" {% static 'images/banners/o-iluminado-1980.jpg' %}" class="d-block w-100">
+            <img src="{% static 'images/banners/'%}{{ banner1.banner }}" class="d-block w-100">
             <div class="carousel-caption">
                <div class="text-right">
-                  <h4 class="font-italic">O Iluminado (1980)</h4>
+                  <h4 class="font-italic">{{ banner1.nome }}({{ banner1.ano }})</h4>
                </div>
             </div>
          </div>
 
          <div class="carousel-item">
-            <img src="{% static 'images/banners/os-vingadores-2012.jpg' %}" class="d-block w-100">
+            <img src="{% static 'images/banners/'%}{{ banner2.banner }}" class="d-block w-100">
             <div class="carousel-caption">
                <div class="text-right">
-                  <h4 class="font-italic">Os Vingadores (2012)</h4>
+                  <h4 class="font-italic">{{ banner2.nome }}({{ banner2.ano }})</h4>
                </div>
             </div>
          </div>
 
          <div class="carousel-item">
-            <img src="{% static 'images/banners/dunkirk-2019.jpg' %}" class="d-block w-100">
+            <img src="{% static 'images/banners/'%}{{ banner3.banner }}" class="d-block w-100">
             <div class="carousel-caption">
                <div class="text-right">
-                  <h4 class="font-italic">Dunkirk (2019)</h4>
+                  <h4 class="font-italic">{{ banner3.nome }}({{ banner3.ano }})</h4>
                </div>
             </div>
          </div>
 
-         <div class="carousel-item">
-            <img src="{% static 'images/banners/fora-de-serie-2019.jpg' %}" class="d-block w-100">
+          <div class="carousel-item">
+            <img src="{% static 'images/banners/'%}{{ banner4.banner }}" class="d-block w-100">
             <div class="carousel-caption">
                <div class="text-right">
-                  <h4 class="font-italic">Fora de Série(2019)</h4>
+                  <h4 class="font-italic">{{ banner4.nome }}({{ banner4.ano }})</h4>
                </div>
             </div>
          </div>
@@ -293,14 +293,14 @@
                       <div class="media">
 
                          <!-- Poster do filme -->
-                         <a href="filme.html">
+                         <a href="filme/">
                              <img src="{% static 'images/filmes/'%}{{ resenha.filme.imagem }}" alt="{{ resenha.filme.nome }} ({{ resenha.filme.ano }})"
                                   class="poster">
                          </a>
 
                          <div class="media-body">
                             <!-- Dados de quem fez a resenha -->
-                            <a href="perfil.html">
+                            <a href="perfil/">
                                <div class="row px-2">
                                   <img class="thumbnail rounded-circle  mr-3" style="max-width: 40px;"
                                      src="{% static 'images/perfis/'%}{{ resenha.perfil.foto }}" />
@@ -309,7 +309,7 @@
                             </a>
 
                             <!-- Nome do filme -->
-                            <a href="filme.html">
+                            <a href="filme/">
                                <h3 class="font-weight-bold">{{ resenha.filme.nome }}</h3>
                             </a>
 
@@ -356,7 +356,7 @@
                       {% for lista in listas %}
                            <!-- Lista 1 -->
                          <div class="col-lg-6" id="lista1">
-                            <a href="lista.html">
+                            <a href="lista/">
                                <h4 class="font-weight-bold">{{ lista.nome }}</h4>
                             </a>
                             <div class="row px-2 mb-2">
@@ -364,11 +364,11 @@
                                    {{lista.curtidas}}
                                   <i class="fas fa-thumbs-up fa-xs" style="color: #dc50f8;"></i>
                                </h6>
-                               <a href="perfil.html">
+                               <a href="perfil/">
                                   <img class="thumbnail rounded-circle" style="max-width: 40px;"
                                      src="{% static 'images/perfis/'%}{{ lista.perfil.foto }}" />
                                </a>
-                               <a href="perfil.html">
+                               <a href="perfil/">
                                   <h5 class="mt-2 ">{{ lista.perfil.nickname }}</h5>
                                </a>
                             </div>
@@ -400,17 +400,17 @@
                     <!-- Pessoa 1-->
                    <div class="col-lg-3 col-md-6" id="pessoa1">
                       <div class="row px-2 mb-2">
-                         <a href="perfil.html">
+                         <a href="perfil/">
                             <img class="thumbnail rounded-circle mr-3  mb-2" style="max-width: 40px;"
                                src="{% static 'images/perfis/'%}{{ perfil.foto }}" />
                          </a>
-                         <a href="perfil.html">
+                         <a href="perfil/">
                             <h4 class="mt-2 ">{{ perfil.nickname }}</h4>
                          </a>
 
                       </div>
                       <div class="row ml-4">
-                         <h6 class="col-lg-4">{{ perfil.filmes_vistos }} Filmes</h6>
+                         <h6 class="col-lg-4">{{ perfil.total_filmes_vistos }} Filmes</h6>
                          <h6 class="col-lg-6">{{ perfil.seguidores }} Seguidores</h6>
                       </div>
 

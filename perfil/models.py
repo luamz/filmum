@@ -13,6 +13,7 @@ class Perfil(models.Model):
     data_cadastro = models.DateField()
     favoritos = models.ManyToManyField(Filme, related_name='favoritos')
     filmes_vistos = models.ManyToManyField(Filme, related_name='filmes_perfil')
+    total_filmes_vistos = models.IntegerField(default=0)
 
     class Meta:
         db_table = 'perfil'
