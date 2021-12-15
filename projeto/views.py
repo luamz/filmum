@@ -15,7 +15,6 @@ def index(request):
     banner0 = banner[0]
     banner1 = banner[1]
     banner2 = banner[2]
-    print(banner2)
     banner3 = banner[3]
     banner4 = banner[4]
 
