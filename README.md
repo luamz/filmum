@@ -1,6 +1,6 @@
 ## Filmum
 Uma rede social e banco de dados de filmes inspirada no site Letterboxd.
-Desenvolvida em Python3 com o framework Django para a disciplina de Desenvolvimento Web.
+Desenvolvida em Python3 com o framework Django para a disciplina de Desenvolvimento Web (2021.2).
 
 
 ### Execução
